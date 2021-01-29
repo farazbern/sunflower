@@ -34,44 +34,8 @@ import org.junit.Test
 import org.junit.rules.RuleChain
 import javax.inject.Inject
 import kotlin.jvm.Throws
-
-@HiltAndroidTest
+ 
 class PlantDetailViewModelTest {
 
-    private lateinit var appDatabase: AppDatabase
-    private lateinit var viewModel: PlantDetailViewModel
-    private val hiltRule = HiltAndroidRule(this)
-    private val instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    @get:Rule
-    val rule = RuleChain
-            .outerRule(hiltRule)
-            .around(instantTaskExecutorRule)
-
-    @Inject
-    lateinit var plantRepository: PlantRepository
-
-    @Inject
-    lateinit var gardenPlantRepository: GardenPlantingRepository
-
-    @Before
-    fun setUp() {
-        hiltRule.inject()
-
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
-        appDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-
-        viewModel = PlantDetailViewModel(plantRepository, gardenPlantRepository, testPlant.plantId)
-    }
-
-    @After
-    fun tearDown() {
-        appDatabase.close()
-    }
-
-    @Test
-    @Throws(InterruptedException::class)
-    fun testDefaultValues() {
-        assertFalse(getValue(viewModel.isPlanted))
-    }
+    
 }
