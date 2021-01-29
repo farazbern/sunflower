@@ -36,6 +36,16 @@ import javax.inject.Inject
 import kotlin.jvm.Throws
  
 class PlantDetailViewModelTest {
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
     
 }
